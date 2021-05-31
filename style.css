@@ -6,13 +6,17 @@
   padding: 0;
   font-size: 62.5%;
   font-family: 'Amatic Sc', cursive;
-  background-color: #020202;
+  /* background-color: #020202; */
   
+}
+
+body {
+  background-color: #020202;
 }
 
 .container {
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -60,4 +64,42 @@ p {
 .btn:active {
   background-color: blue;
   
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 ;
+  
+}
+
+.game-container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-items: center; */
+  justify-content: center;
+}
+
+#questions {
+  font-size: 15rem;
+}
+
+button {
+  background-color: black;
+  margin: 2rem;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
 }
