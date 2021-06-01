@@ -78,7 +78,8 @@ p {
 
 .game-container {
   width: 800px;
-  max-width: 80%;
+  min-width: 80%;
+  max-width: 100%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
