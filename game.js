@@ -96,6 +96,19 @@ function checkAnswer(e) {
   }
 }
 
+function setTimer() {
+  let quizTimer = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      timerEl.textContent = `Time: ${timeLeft}`
+    }else {
+      clearInterval(quizTimer)
+      timerEl.textContent = ``
+
+    }
+  }, 1000);
+}
+
 btnEl.addEventListener("click", function() {
   displayQandA()
   
