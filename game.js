@@ -50,18 +50,6 @@ var questions = [
 	},
 ];
 
-// make a function to startgame then timer starts and questions show up on screen
-
-// function timer()
-
-// after displayQandA function run an addEventlistener to look for the user click
-
-// when they start the quiz a timer should start and they should be presented with the first question
-// If they get a question wrong they should be deducted time and it would be their quiz score
-//game should end when all questions are answered or the timer reaches zero
-// when they are done they should get their score  and should be able to save it by entering their initials
-// a go back button should return them to the home page
-
 let currentIndex = 0
 
 function displayQandA() {
@@ -111,6 +99,7 @@ function setTimer() {
 
 btnEl.addEventListener("click", function() {
   displayQandA()
+  setTimer()
   
 })
 // btnEl.addEventListener("click", function(event) {
