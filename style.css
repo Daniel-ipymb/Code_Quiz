@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 62.5%;
+  
   font-family: 'Amatic Sc', cursive;
   /* background-color: #020202; */
   
@@ -36,22 +36,24 @@ body {
   align-items: center;
 }
 h1 {
-  font-size: 8rem;
+  font-size: 30px;
   font-weight: bolder;
 }
 
 p {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .btn {
   font-size: 2.8rem;
-  padding: 1rem 0;
-  width: 30rem;
+  padding: 0.3rem 0;
+  width: 15rem;
   text-align: center;
-  margin-top: 1.4rem;
+  margin-top: 1.1rem;
   border-radius: 4px;
   color: white;
+  background-color: black;
+  margin: 2rem;
 }
 
 .btn:hover {
@@ -73,33 +75,47 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 ;
-  
+  font-size: 10px;
 }
 
 .game-container {
-  width: 800px;
+  /* width: 100px;
   min-width: 80%;
-  max-width: 100%;
+  max-width: 100%; */
+  width: 50%;
+  height: 50%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   color: black;
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; 
   justify-content: center;
 }
 
 #questions {
-  font-size: 15rem;
+  font-size: 3rem;
+  text-align: center;
 }
 
-button {
-  background-color: black;
-  margin: 2rem;
-}
+/* button {
+ 
+} */
 
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 10px;
+  justify-content: space-around;
+}
+
+/* #answerBtn {
+  display: flex;
+  
+
+} */
+
+ header nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }

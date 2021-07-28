@@ -2,6 +2,14 @@ var questionEl = document.querySelector("#questions");
 var btnEl = document.querySelector("#startBtn");
 var startContainer = document.querySelector("#start-container");
 var gameContainer = document.querySelector("#game");
+var inputbox = document.querySelector(".hide");
+var scoreEl = document.querySelector("#finalScore");
+var formEl = document.querySelector(".form-submit");
+var timerEl = document.querySelector("#timeLeft")
+var initialsInput = document.getElementById('initialInput');
+let score = 0;
+
+let highestScore = JSON.parse(localStorage.getItem("highestScore")) || "";
 var questions = [
 	{
 		question: "What is Javascript",
@@ -12,7 +20,7 @@ var questions = [
 			{ text: "4", correct: true },
 		],
 	},
-  {
+	{
 		question: "What is Javascript",
 		answers: [
 			{ text: "9", correct: false },
@@ -21,7 +29,7 @@ var questions = [
 			{ text: "5", correct: false },
 		],
 	},
-  {
+	{
 		question: "What is Javascript",
 		answers: [
 			{ text: "9", correct: false },
@@ -30,7 +38,7 @@ var questions = [
 			{ text: "5", correct: false },
 		],
 	},
-  {
+	{
 		question: "What is Javascript",
 		answers: [
 			{ text: "9", correct: false },
@@ -39,7 +47,7 @@ var questions = [
 			{ text: "5", correct: false },
 		],
 	},
-  {
+	{
 		question: "What is Javascript",
 		answers: [
 			{ text: "9", correct: false },
@@ -50,7 +58,7 @@ var questions = [
 	},
 ];
 
-let currentIndex = 0
+let currentIndex = 0;
 
 function displayQandA() {
 	startContainer.setAttribute("style", "visibility:hidden; display:none;");
@@ -71,57 +79,75 @@ function checkAnswer(e) {
 		if (answer.correct) {
 			if (answer.text === this.textContent) {
 				console.log("Correct");
+				score += 10;
 			} else {
 				console.log("wrong");
+				score -= 5;
 			}
 		}
 	});
-  if (currentIndex === questions.length - 1) {
-    console.log("End of quiz")
-  }else {
-    currentIndex ++
-    displayQandA()
-  }
+	if (currentIndex === questions.length - 1) {
+		console.log("End of quiz");
+		gameContainer.setAttribute("style", "visibility:hidden; display:none;");
+		inputbox.setAttribute("style", "visibility:visible; display:inline");
+		gameOver();
+	} else {
+		currentIndex++;
+		displayQandA();
+	}
 }
+
+function gameOver() {
+	scoreEl.textContent = `Final score is ${score}`;
+
+  formEl.addEventListener("submit", highScore)
+	// formEl.addEventListener("submit", function (e) {
+	// 	e.preventDefault();
+
+	// 	let newScore = {
+	// 		initials: initialsInput.value.trim(),
+	// 		totalScore: score,
+	// 	};
+
+	// 	highestScore.push(newScore);
+
+	// 	localStorage.setItem("highestScore", JSON.stringify(highestScore));
+
+	// 	location.replace("highscores.html");
+	// });
+}
+
+let timeLeft = 60;
 
 function setTimer() {
-  let quizTimer = setInterval(() => {
-    if (timeLeft > 0) {
-      timeLeft--;
-      timerEl.textContent = `Time: ${timeLeft}`
-    }else {
-      clearInterval(quizTimer)
-      timerEl.textContent = ``
-
-    }
-  }, 1000);
+	let quizTimer = setInterval(() => {
+		if (timeLeft > 0) {
+			timeLeft--;
+			timerEl.textContent = `Time: ${timeLeft}`;
+		} else {
+			clearInterval(quizTimer);
+			timerEl.textContent = ``;
+      gameOver()
+		}
+	}, 1000);
 }
 
-btnEl.addEventListener("click", function() {
-  displayQandA()
-  setTimer()
-  
-})
-// btnEl.addEventListener("click", function(event) {
-//   event.preventDefault()
-//   var correctChoice = event.target;
+function highScore(event) {
+	event.preventDefault();
 
-//   if (correctChoice.matches(answers.correct === true)) {
+	var newRecord = {
+		initials: initialsInput.value,
+		score: score,
+	};
 
-//     // if (answers.correct) {
-//       questions.question++
+	highestScore.push(newRecord);
 
-//     var body = document.getElementsByClassName('question-Container')[0],
-//     choiceReply = document.createElement('h2');
-//     h2.textContent = "Correct!"
-//     choiceReply.id = 'newid';
-//     question-Container.appendChild(choiceReply);
+	localStorage.setItem("highestScore", JSON.stringify(highestScore));
 
-//   var
-//   var choiceReply = document.createElement('h3')
-//   .body.appendChild(choiceReply)
-//   choiceReply.textContent("Correct!")
-//   console.log(choiceReply)
-// }
-//   }
-// })
+	location.replace("highscores.html");
+}
+
+btnEl.addEventListener("click", function () {
+	setTimer();
+	displayQandA();
+});
