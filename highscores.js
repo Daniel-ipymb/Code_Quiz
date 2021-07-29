@@ -1,6 +1,6 @@
 var allScores = document.querySelector("#scores")
 var highestScore = JSON.parse(localStorage.getItem("highestScore"))  || [];
-
+var returnquiz = document.querySelector("#back")
 //Function to display the scores
 function displayScores() {
     
@@ -19,5 +19,10 @@ function displayScores() {
 
     }
 }
+
+returnquiz.addEventListener("click", function() {
+  location.replace("game.html")
+})
+
 
 displayScores();
