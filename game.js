@@ -101,20 +101,6 @@ function gameOver() {
 	scoreEl.textContent = `Final score is ${score}`;
 
   formEl.addEventListener("submit", highScore)
-	// formEl.addEventListener("submit", function (e) {
-	// 	e.preventDefault();
-
-	// 	let newScore = {
-	// 		initials: initialsInput.value.trim(),
-	// 		totalScore: score,
-	// 	};
-
-	// 	highestScore.push(newScore);
-
-	// 	localStorage.setItem("highestScore", JSON.stringify(highestScore));
-
-	// 	location.replace("highscores.html");
-	// });
 }
 
 let timeLeft = 60;

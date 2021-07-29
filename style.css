@@ -4,10 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
   font-family: 'Amatic Sc', cursive;
-  /* background-color: #020202; */
-  
 }
 
 body {
@@ -79,9 +76,6 @@ p {
 }
 
 .game-container {
-  /* width: 100px;
-  min-width: 80%;
-  max-width: 100%; */
   width: 50%;
   height: 50%;
   background-color: white;
@@ -97,10 +91,6 @@ p {
   text-align: center;
 }
 
-/* button {
- 
-} */
-
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -108,13 +98,7 @@ p {
   justify-content: space-around;
 }
 
-/* #answerBtn {
-  display: flex;
-  
-
-} */
-
- header nav {
+header nav {
   display: flex;
   justify-content: space-between;
   margin: 10px;
