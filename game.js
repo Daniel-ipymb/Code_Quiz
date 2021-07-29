@@ -12,48 +12,48 @@ let score = 0;
 let highestScore = JSON.parse(localStorage.getItem("highestScore")) || [];
 var questions = [
 	{
-		question: "What is Javascript",
+		question: "Which of these is an html element",
 		answers: [
-			{ text: "1", correct: false },
-			{ text: "2", correct: false },
-			{ text: "3", correct: false },
-			{ text: "4", correct: true },
+			{ text: "<h0>", correct: false },
+			{ text: "<class>", correct: false },
+			{ text: "<b>", correct: false },
+			{ text: "<body>", correct: true },
 		],
 	},
 	{
-		question: "What is Javascript",
+		question: "Which of this can you use to grab an element in javascript",
 		answers: [
-			{ text: "9", correct: false },
-			{ text: "6", correct: true },
-			{ text: "3", correct: false },
-			{ text: "5", correct: false },
+			{ text: "querySelector", correct: true },
+			{ text: "EventListener", correct: false },
+			{ text: "getAttribute", correct: false },
+			{ text: "textContent", correct: false },
 		],
 	},
 	{
-		question: "What is Javascript",
+		question: "Which of this can you use to edit the DOM in javascript",
 		answers: [
-			{ text: "9", correct: false },
-			{ text: "6", correct: true },
-			{ text: "3", correct: false },
-			{ text: "5", correct: false },
+			{ text: "event", correct: false },
+			{ text: "textContent", correct: true },
+			{ text: "push", correct: false },
+			{ text: "JSON", correct: false },
 		],
 	},
 	{
-		question: "What is Javascript",
+		question: "Which of this can be used to remove an element in an array",
 		answers: [
-			{ text: "9", correct: false },
-			{ text: "6", correct: true },
-			{ text: "3", correct: false },
-			{ text: "5", correct: false },
+			{ text: "push()", correct: false },
+			{ text: "setItem()", correct: false },
+			{ text: "pop()", correct: true },
+			{ text: "map()", correct: false },
 		],
 	},
 	{
-		question: "What is Javascript",
+		question: "Which of this can you use to add an element to an existing array",
 		answers: [
-			{ text: "9", correct: false },
-			{ text: "6", correct: true },
-			{ text: "3", correct: false },
-			{ text: "5", correct: false },
+			{ text: "array.push()", correct: true },
+			{ text: "array.splice()", correct: false},
+			{ text: "array.map()", correct: false },
+			{ text: "array.filter()", correct: false },
 		],
 	},
 ];
@@ -80,6 +80,8 @@ function checkAnswer(e) {
 			if (answer.text === this.textContent) {
 				console.log("Correct");
 				score += 10;
+        const answer = document.createElement("p")
+        answer.append("Correct")
 			} else {
 				console.log("wrong");
 				score -= 5;

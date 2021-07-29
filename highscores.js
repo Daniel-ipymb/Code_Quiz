@@ -21,7 +21,7 @@ function displayScores() {
 }
 
 returnquiz.addEventListener("click", function() {
-  location.replace("game.html")
+  location.replace("index.html")
 })
 
 
