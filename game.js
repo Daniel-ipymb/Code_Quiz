@@ -9,7 +9,7 @@ var timerEl = document.querySelector("#timeLeft")
 var initialsInput = document.getElementById('initialInput');
 let score = 0;
 
-let highestScore = JSON.parse(localStorage.getItem("highestScore")) || "";
+let highestScore = JSON.parse(localStorage.getItem("highestScore")) || [];
 var questions = [
 	{
 		question: "What is Javascript",
